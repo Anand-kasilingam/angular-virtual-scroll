@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ArtistsService } from '../app/artists.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'vistual-scroll';
+  title = 'Angualr vistual-scroll';
+
+  constructor(public artistService: ArtistsService) {}
+
+  artists = [];
+      ngOnInit() {
+       this.getArtists();
+      }
+      getArtists (){
+       this.artists = this.artistService.getArtists();
+       }
 }
